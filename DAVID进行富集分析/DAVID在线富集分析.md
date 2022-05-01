@@ -1,6 +1,7 @@
 转自https://blog.csdn.net/xiaobai1_1/article/details/103596474
 
 1.使用DAVID 进行 GO/ KEGG 富集分析
+
   a.打开DAVID官网：https://david.ncifcrf.gov/
   b.点击左侧功能菜单：Functional Annotation
   c.进入到如下的页面中，页面中的大红框中就是进行分析所用的主要操作区域。进入分析页面后，通过如下三步即可完成分析：
