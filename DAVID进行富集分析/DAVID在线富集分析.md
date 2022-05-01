@@ -39,6 +39,7 @@
       FAA4
       TGL3
       YJU3
+      
   e.“Select Identifier” 中选择上传的基因类型，因为我们上传的是基因名（Gene Symbol），所以在下拉菜单中选择 “OFFICIAL_GENE_SYMBOL”。
   
   f.在 “List Type” 中有两个单选框，我们统一选择 “Gene List” 这一项。
