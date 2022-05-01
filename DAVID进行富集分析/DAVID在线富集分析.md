@@ -4,7 +4,7 @@
 
   a.打开DAVID官网：https://david.ncifcrf.gov/
   
-  b.点击左侧功能菜单：Functional Annotation
+  b.点击上侧功能菜单：shortcut to DAVID Tools 进入Function Annotation
   
   c.进入到如下的页面中，页面中的大红框中就是进行分析所用的主要操作区域。进入分析页面后，通过如下三步即可完成分析：
 提交基因列表 --> 选定提交列表类型 --> 开始分析
