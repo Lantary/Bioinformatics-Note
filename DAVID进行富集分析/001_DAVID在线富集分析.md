@@ -1,5 +1,7 @@
 转自https://blog.csdn.net/xiaobai1_1/article/details/103596474
 
+原帖所用的是旧版的DAVID 因为各种原因，我用原帖的基因编号进行分析并没能得到同样的结果，故操作步骤与原帖相似，但重新选取了分析的基因
+
 1.使用DAVID 进行 GO/ KEGG 富集分析
 
   a.打开DAVID官网：https://david.ncifcrf.gov/
