@@ -11,7 +11,7 @@
   c.进入到如下的页面中，页面中的大红框中就是进行分析所用的主要操作区域。进入分析页面后，通过如下三步即可完成分析：
 提交基因列表 --> 选定提交列表类型 --> 开始分析
 
-  d.在 “Enter Gene List” 中上传基因列表，格式是每行一个基因。按照 DAVID 的要求，总的基因个数不得超过 3000 个。我们这里去GO数据库上寻找glyoxylate cycle有关的蛋白进行分析。（以该循环内的蛋白为例）选中所需的蛋白（全部）点击Download，选择bioentity_internal_id 项，实际就是蛋白的UniProtAccession编号。
+  d.在 “Enter Gene List” 中上传基因列表，格式是每行一个基因。按照 DAVID 的要求，总的基因个数不得超过 3000 个。我们这里去GO数据库以glyoxylate cycle为关键词对搜索出的蛋白进行分析。（以该循环内的蛋白为例）选中所需的蛋白（全部）点击Download，选择bioentity_internal_id 项，实际就是蛋白的UniProtAccession编号。
   ![image](https://user-images.githubusercontent.com/102901955/166140079-c8902b77-a27e-432c-98cd-464a71edc6d3.png)
   
   然后通过https://biodbnet-abcc.ncifcrf.gov/db/db2db.php （一个基因格式转换的工具网站） 进行ID转换，input选择UniProtAccession， output选择AffyID，后将d步骤的UniProtAccession编号复制入转换框中进行转换
