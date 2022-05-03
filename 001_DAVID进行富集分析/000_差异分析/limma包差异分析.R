@@ -1,5 +1,5 @@
 library(limma)
-library(dplyr)
+library(stringr)
 
 # 设置工作目录
 setwd("E:/Project/R/差异分析")
