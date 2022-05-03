@@ -2,7 +2,7 @@
 
 原帖所用的是旧版的DAVID 因为各种原因，我用原帖的基因编号进行分析并没能得到同样的结果，故操作步骤与原帖相似，但重新选取了分析的基因。在一般的富集分析中被分析的基因往往来自于某一或一些列实验中差异分析的结果。
 
-1.使用DAVID 进行 GO/ KEGG 富集分析
+# 1.使用DAVID 进行 GO/ KEGG 富集分析
 
   a.打开DAVID官网：https://david.ncifcrf.gov/
   
@@ -12,6 +12,9 @@
 提交基因列表 --> 选定提交列表类型 --> 开始分析
 
   d.在 “Enter Gene List” 中上传基因列表，格式是每行一个基因。按照 DAVID 的要求，总的基因个数不得超过 3000 个。我们这里去GO数据库以glyoxylate cycle为关键词对搜索出的蛋白进行分析。（以该循环内的蛋白为例）选中所需的蛋白（全部）点击Download，选择bioentity_internal_id 项，实际就是蛋白的UniProtAccession编号。
+  
+  这一步是为了获取用于分析的原数据，也可以使用本文档的000_差异分析中获得的蛋白，ENSEMBL_TRANSCRIPT_ID 数据进行富集分析
+  
   ![image](https://user-images.githubusercontent.com/102901955/166140079-c8902b77-a27e-432c-98cd-464a71edc6d3.png)
   
   然后通过https://biodbnet-abcc.ncifcrf.gov/db/db2db.php （一个基因格式转换的工具网站） 进行ID转换，input选择UniProtAccession， output选择AffyID，后将d步骤的UniProtAccession编号复制入转换框中进行转换
