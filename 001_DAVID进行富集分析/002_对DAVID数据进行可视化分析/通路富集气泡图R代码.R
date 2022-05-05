@@ -12,6 +12,12 @@ keggSig = rt[rt$PValue < 0.05,]
 keggSig = separate(keggSig, Term, sep = ":",
                    into = c("ID", "Term"))
 
+# 结果按FE降序排列
+keggSig <- keggSig[order(keggSig$Fold.Enrichment), ]
+
+keggSig$Term <- factor(keggSig$Term,levels = keggSig$Term)
+
+
 # 作图函数
 ggplot(keggSig, aes(x = Fold.Enrichment, y = Term)) +
   geom_point(aes(size = Count, color = -1*log10(PValue))) +
