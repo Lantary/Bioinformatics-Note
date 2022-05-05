@@ -6,10 +6,10 @@ setwd("C:/Users/ThinkPad/Desktop")
 rt = read.table(file = 'DAVID_pathway_AnalyseResult.txt', sep = '\t', header = T,quote = '')
 
 # 选出P值显著的富集结果
-keggSig = rt[rt$PValue < 0.05,]    
+keggSig <- rt[rt$PValue < 0.05,]    
 
 # 格式化TXT文件，拆分Term列
-keggSig = separate(keggSig, Term, sep = ":",
+keggSig <- separate(keggSig, Term, sep = ":",
                    into = c("ID", "Term"))
 
 # 结果按FE降序排列
