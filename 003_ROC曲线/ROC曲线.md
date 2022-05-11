@@ -4,9 +4,7 @@ ROC曲线实际上就是一种用于评价所建立的模型优劣性的二维�
 
 <br></br>
 
-## 1.相关概念
-
-<br></br>
+## 1.相关概念 
 
 1.真阳性(TP)：实际为正类，模型预测为正类
 
@@ -32,8 +30,6 @@ ROC曲线实际上就是一种用于评价所建立的模型优劣性的二维�
 
 ## 2.ROC曲线
 
-<br></br>
-
 ROC曲线是以灵敏度与特异度为指标对某一模型作出评价的二维图像。
 
 以 `1 - 特异度` 作为横坐标，也可以称为伪正类率(False positive rate， FPR)，表示模型对负类的识别能力，数值越小，模型对负类识别能力越好。
@@ -54,7 +50,6 @@ ROC曲线是以灵敏度与特异度为指标对某一模型作出评价的二�
 
 
 ## 3.AUC面积
-<br></br>
 
 AUC面积是指ROC曲线与 x = 1 与 x 轴 所围成区域的面积，即图中绿色部分。
 
@@ -65,6 +60,7 @@ AUC面积往往用于衡量一个模型的预测性的优劣，因为ROC曲线�
 一般地认为AUC面积越大，则模型的预测性越好。
 
 # 二、ROC曲线如何绘制
+<br></br>
 
 ## 1.算法介绍
 
@@ -85,6 +81,41 @@ AUC面积往往用于衡量一个模型的预测性的优劣，因为ROC曲线�
 ![image](https://user-images.githubusercontent.com/102901955/167880563-cbc141ce-5d9d-403a-91a0-915bc8416601.png)
 
 ===================
+
+即最后roc函数计算的数据格式要如上图所示
+
+roc(v1, v2) 
+
+v1 -训练集中实际正类还是负类的列向量
+
+v2 -训练集中模型预测为正类的预测概率
+
+### 1.简单绘制ROC曲线
+
+```R
+# 加载R包
+library(pROC)
+library(ggplot2)
+
+# 读取数据
+df = read.delim("https://www.bioladder.cn/shiny/zyp/bioladder2/demoData/ROC/demo.txt",# 这里读取了网络上的demo数据，将此处换成你自己电脑里的文件
+                header = T    # 指定第一行是列名
+)
+
+# ROC计算
+rocobj <- roc(df[,1], df[,2])
+
+# 绘图
+plot(rocobj, col = "red", legacy.axes = T, print.auc = T, print.thres = T)
+
+"""
+print.auc    -增加AUC面积
+print.thres  -增加临界点
+legacy.axes  -更改横坐标(以 1-敏感度 还是 敏感度 为横坐标)
+
+"""
+
+```
 
 
 
