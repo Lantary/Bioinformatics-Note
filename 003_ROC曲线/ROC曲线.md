@@ -116,6 +116,27 @@ legacy.axes  -更改横坐标(以 1-敏感度 还是 敏感度 为横坐标)
 """
 
 ```
+### 2.将两个ROC曲线绘制在一张图中，并添加标签
+
+```R
+# 读取数据及ROC计算同 ###1 步骤。 
+
+# 绘图
+plot(rocobj_1, col = "red", legacy.axes = T, print.thres = T)                                             
+plot(rocobj_2, col = "blue", legacy.axes = T, print.thres = T, add = T)
+legend("bottomright", legend = c("roc1 AUC-0.731", "roc2 AUC-0.612"), col = c("red", "blue"), lty = c(1, 1))  # 添加图例
+
+"""
+====
+plot:
+rocobj_1, rocobj_2  -表示通过roc函数所计算出来的数据集
+add                 -表示添加曲线,添加该参数后不会覆盖原图像,而是添加新的曲线到图像上
+====
+legend:
+"bottomright"       -设置标签所在位置
+legend              -设置标签的名字, 可以通过手动添加AUC数字
+lty                 -改变标签线的类型, 可以设置通过与plot图像一一对应.
+"""
 
 
 
