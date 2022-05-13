@@ -16,10 +16,14 @@ cutOffPoint <- coords(rocobj, "best")
 auc_1 <- auc(rocobj_1)[1]
 auc_2 <- auc(rocobj_2)[1]
 
+# 制作标签
+label_1 <- sprintf("roc1 auc-%0.2f", auc_1)
+label_2 <- sprintf("roc1 auc-%0.2f", auc_2)
+
 # 绘图
 plot(rocobj_1, col = "red", legacy.axes = T, print.thres = T)
 plot(rocobj_2, col = "blue", legacy.axes = T, print.thres = T, add = T)
-legend("bottomright", legend = c("roc1 AUC-0.731", "roc2 AUC-0.612"), col = c("red", "blue"), lty = c(1, 1))  # 添加图例
+legend("bottomright", legend = c(label_1, label_2), col = c("red", "blue"), lty = c(1, 1))  # 添加图例
 
 
 
