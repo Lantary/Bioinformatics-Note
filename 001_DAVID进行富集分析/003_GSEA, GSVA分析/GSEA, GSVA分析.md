@@ -16,3 +16,6 @@ GSEA也是一种富集分析方式，与GO和KEGG富集分析相似却也有不�
 
 3.第三部分: Ranked list metric 表示的也是差异分析中不同基因log(FC)的量, 将横坐标中的红蓝图量化表达出来. 
 
+# 参考连接
+https://zhuanlan.zhihu.com/p/358168557
+
