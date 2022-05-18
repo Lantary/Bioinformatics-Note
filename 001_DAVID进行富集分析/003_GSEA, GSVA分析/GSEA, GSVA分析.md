@@ -36,6 +36,51 @@ GSVA分析的结果是一个表达矩阵, 常见的结果可视化为制作热�
 
 1.导入的数据结构
 
+<figure class = "half">
+    <img src = "https://user-images.githubusercontent.com/102901955/169063653-e5c0315d-0296-4a79-bfee-af60834bf9b6.png">
+    <img src = "https://user-images.githubusercontent.com/102901955/169064832-f85b88b0-58dc-46fe-bd1e-43563ccf7357.png">
+</figure>
+
+表达矩阵: 导入的数据格式如上图所示, 行名为样本编号, 列名为Gene Symbol ID, 单元格内值为log2化的表达量. 原始数据可以在GEO数据库中找到.
+基因集:   导入的数据如下图所示, 格式为gmt, 可以在[MSigdb](https://www.gsea-msigdb.org/gsea/msigdb/genesets.jsp)上找到常用的基因集, 也可以自己制作.
+
+2.代码
+
+```R
+# 加载R包
+library(GSVA)            # 用于GSVA分析
+library(GSEABase)        # 用于读取文件
+library(pheatmap)        # 制作热图
+
+# 文件读取
+setwd("工作路径")                                   # 设置工作路径
+keggSet = getGmt("基因集文件路径")                  # 读取基因集文件
+expmatrix_data = read.table(                       # 读取表达矩阵
+  "表达矩阵路径", 
+  header = TRUE,                                         
+)
+```
+如果格式不对, 自行调整
+```R
+# GSVA分析
+gsva_data <- gsva(
+  expr = as.matrix(exp_new),         # 输入表达矩阵
+  gset.idx.list = keggSet,           # 输入基因集
+  method = "gsva",                   # 选择算法
+  kcdf = "none"                      # 选择CDF计算模型,正态，高斯还是泊松
+)
+```
+GSVA分析的算法见参考连接, ?gsva可以查看更多参数, 一般来说log2化的矩阵计算模型选用正态, 没有进行log2化的选泊松
+```R
+# 绘制热图
+pheatmap(
+  gsva_data,
+  show_colnames = T,
+  show_rownames = T,
+  kmeans_k = NA
+)
+```
+
 
 
 
