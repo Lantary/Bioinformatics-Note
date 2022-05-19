@@ -18,6 +18,45 @@ GSEA也是一种富集分析方式，与GO和KEGG富集分析相似却也有不�
 
 ## 3.GSEA R语言实现
 
+1.数据格式
+
+![image](https://user-images.githubusercontent.com/102901955/169223848-ed0e5293-f179-4cdf-a288-37046819a6c5.png)
+
+需要一个键名为基因ENTREZID, 键值为logFC的字典格式向量, K可以用下面代码构造字典, 其中df_all的logFC列为 差异分析后的logFC值, ENTREZID列为对应基因的ENTREZID编号
+```R
+gene_fc <- df_all$logFC                                  # 构造字典向量
+names(gene_fc) <- df_all$ENTREZID                        # 构造字典向量
+```
+
+2.代码
+```R
+# 加载R包
+library(enrichplot)      # 用于画图
+library(clusterProfiler) # GSEA分析
+
+# 导入文件
+df = read.csv("路径")
+
+# GAEA
+df_all <- df_all[order(df_all$logFC, decreasing = T), ]  # 数据按logFC排列
+gene_fc <- df_all$logFC                                  # 构造字典向量
+names(gene_fc) <- df_all$ENTREZID                        # 构造字典向量
+KEGG <- gseKEGG(gene_fc, organism = "mmu")               # 人类样本organism参数为hsa 详情见http://www.genome.jp/kegg/catalog/org_list.html
+
+# 绘图
+gseaplot2(
+  KEGG,                           # gseaResult object，即GSEA结果
+  "mmu00830",                     # 富集的ID编号，选择表示的通路
+  title = "Retinol metabolism",   # 标题
+  color = "green",                # GSEA线条颜色
+  base_size = 11,                 # 基础字体大小
+  rel_heights = c(1.5, 0.5, 1),   # 副图的相对高度
+  subplots = 1:3,                 # 要显示哪些副图 如subplots=c(1,3) -只要第一和第三个图，subplots=1 -只要第一个图
+  pvalue_table = FALSE,           # 是否添加 pvalue table
+  ES_geom = "line"                # running enrichment score用线还是用点ES_geom = "dot"
+)
+
+```
 
 
 <br></br>
