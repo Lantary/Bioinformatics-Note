@@ -1,3 +1,8 @@
+---
+title: GSEA,GSVA分析
+---
+一种富集分析
+
 # 一、什么是GSEA
 <br></br>
 ## 1.GSEA(基因集富集分析)
