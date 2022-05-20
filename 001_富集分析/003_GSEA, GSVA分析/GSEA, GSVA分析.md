@@ -1,7 +1,3 @@
----
-title: GSEA,GSVA分析
----
-一种富集分析
 
 # 一、什么是GSEA
 <br></br>
